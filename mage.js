@@ -35,7 +35,9 @@ class Mage {
         // dead down
         this.animations[1][3] = new Animator(this.spritesheetMage, 1765, 630, 70, 52, 1, 0.10, 0, false, true);
         // shoot
-        this.animations[1][2] = new Animator(this.spritesheetMage, 1205, 1051, 60, 52, 4, 0.2, 84, false, true);
+        // this.animations[1][2] = new Animator(this.spritesheetMage, 1205, 1051, 60, 52, 4, 0.2, 84, false, true);
+
+        this.shootAnim = new Animator(this.spritesheetMage, 1205, 1051, 60, 52, 4, 0.05, 84, false, true);
 
         
 
@@ -60,11 +62,11 @@ class Mage {
         //     this.velocity.y += RUN_FALL * TICK;
         //     this.y += this.velocity.y * TICK * PARAMS.SCALE;
         // } else {
-
             // update velocity
             this.velocity.y += this.fallAcc * TICK;
             if(this.shoot){
-                if(this.elapsedTime > 0.5){
+                this.velocity.x = 0;
+                if(this.elapsedTime > 0.3 && this.shootAnim.isAlmostDone(TICK)){
                     this.game.addEntityToBegin(new Projectile(this.game, this.x, this.y));
                     this.elapsedTime = 0;
                     this.shoot = false;
@@ -148,7 +150,8 @@ class Mage {
 
     draw(ctx) {
         if(this.shoot){
-            this.animations[1][2].drawFrame(this.game.clockTick, ctx, this.x , this.y, PARAMS.SCALE);
+            // this.animations[1][2].drawFrame(this.game.clockTick, ctx, this.x , this.y, PARAMS.SCALE);
+            this.shootAnim.drawFrame(this.game.clockTick, ctx, this.x , this.y, PARAMS.SCALE);
         }
          else {
             this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x , this.y, PARAMS.SCALE);

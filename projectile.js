@@ -5,6 +5,7 @@ class Projectile{
         this.spritesheet = assetMangager.getAsset("./mageBall.png");
         this.speed = 200;
         this.animations = [];
+        this.dead = false;
         this.animations.push(new Animator(this.spritesheet, 175, 255, 6, 6, 1, 0.1, 0, false, true));
         this.updateBB();
     };
@@ -14,16 +15,20 @@ class Projectile{
         
     };
     update(){
-        // this.game.entities.forEach(function (entity) {
-        //     if (entity.BB && that.BB.collide(entity.BB)) {
-        //             if ((entity instanceof Ground) && (that.lastBB.bottom) >= entity.BB.top) {
-        //                     that.dead = true;
-        //                 }
-        //                 that.updateBB();
-        //             }
-        //     });
+        if(this.dead){
+            this.removeFromWorld = true;
+        }
         this.y -= this.speed * this.game.clockTick;
         this.updateBB();
+        var that = this;
+        this.game.entities.forEach(function (entity) {
+            if (entity.BB && that.BB.collide(entity.BB)) {
+                if ((entity instanceof Fruit) && that.BB.collide(entity.BB)) {
+                   that.dead = true;
+                   entity.removeFromWorld = true;
+                }
+                    }
+            });
     };
 
     draw(ctx){
