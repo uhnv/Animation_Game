@@ -1,20 +1,26 @@
-const gameEngine = new GameEngine();
+var assetMangager = new AssetManager();
 
-const ASSET_MANAGER = new AssetManager();
-ASSET_MANAGER.queueDownload("./sprites/knightright.png");
-ASSET_MANAGER.queueDownload("./sprites/knightsleft.png");
-ASSET_MANAGER.queueDownload("./sprites/layer-1.png");
-ASSET_MANAGER.queueDownload("./sprites/layer-2.png");
-ASSET_MANAGER.queueDownload("./sprites/layer-3.png");
-ASSET_MANAGER.queueDownload("./sprites/layer-4.png");
-ASSET_MANAGER.queueDownload("./sprites/layer-5.png");
-ASSET_MANAGER.downloadAll(() => {
-	const canvas = document.getElementById("myCanvas");
-	const ctx = canvas.getContext("2d");
-	ctx.imageSmoothingEnabled = false;
-	gameEngine.addEntity(new Knight(gameEngine));
-	gameEngine.addEntity(new BackGround(gameEngine));
-	gameEngine.init(ctx);
+assetMangager.queueDownload("./knightright.png");
+assetMangager.queueDownload("./knightsleft.png");
+assetMangager.queueDownload("./layer-5.png");
+assetMangager.queueDownload("./Fruit.png");
+assetMangager.queueDownload("./wizard.png");
+assetMangager.queueDownload("./mageBall.png");
+assetMangager.queueDownload("./background.png");
 
-	gameEngine.start();
+assetMangager.downloadAll(() => {
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.imageSmoothingEnabled = false;
+var gameEngine = new GameEngine();
+PARAMS.BLOCKWIDTH = PARAMS.BITWIDTH * PARAMS.SCALE;
+PARAMS.BLOCKHEIGHT = PARAMS.BITHEIGHT * PARAMS.SCALE;
+PARAMS.CANVAS_WIDTH = canvas.width;
+PARAMS.CANVAS_HEIGHT = canvas.height;
+// gameEngine.addEntity(new MegaMan(gameEngine, 50, 100));
+
+gameEngine.init(ctx);
+gameEngine.addEntity(new SceneManager(gameEngine));
+gameEngine.start();
+
 });
