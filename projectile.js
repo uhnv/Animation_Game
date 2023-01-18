@@ -14,6 +14,14 @@ class Projectile{
         
     };
     update(){
+        // this.game.entities.forEach(function (entity) {
+        //     if (entity.BB && that.BB.collide(entity.BB)) {
+        //             if ((entity instanceof Ground) && (that.lastBB.bottom) >= entity.BB.top) {
+        //                     that.dead = true;
+        //                 }
+        //                 that.updateBB();
+        //             }
+        //     });
         this.y -= this.speed * this.game.clockTick;
         this.updateBB();
     };
