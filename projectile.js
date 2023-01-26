@@ -6,7 +6,7 @@ class Projectile{
         this.speed = 200;
         this.animations = [];
         this.dead = false;
-        this.animations.push(new Animator(this.spritesheet, 0, 0, 15, 15, 4, 0.3, 7, false, true));
+        this.animations.push(new Animator(this.spritesheet, 0, 0, 15, 15, 4, 0.3, 7, 0, false, true, false));
         this.updateBB();
     };
     updateBB() {

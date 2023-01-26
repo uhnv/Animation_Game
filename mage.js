@@ -27,40 +27,40 @@ class Mage {
         }
 
         // right idle
-        this.animations[0][0] = new Animator(this.spritesheet, 61, 15, 45, 105, 8, 0.20, 115, false, true);
+        this.animations[0][0] = new Animator(this.spritesheet, 61, 15, 45, 105, 8, 0.20, 115, 0, false, true, false);
         // right run
-        this.animations[1][0] = new Animator(this.spritesheet, 65, 150, 39, 105, 8, 0.20, 121, false, true);
+        this.animations[1][0] = new Animator(this.spritesheet, 65, 150, 39, 105, 8, 0.20, 121, 0, false, true, false);
         // right attack
-        this.animations[2][0] = new Animator(this.spritesheet, 61, 269, 70, 105, 13, 0.05, 90, false, true); 
+        this.animations[2][0] = new Animator(this.spritesheet, 61, 269, 70, 105, 13, 0.05, 90, 0, false, true, false); 
         // skull attack
-        this.animations[3][0] = new Animator(this.spritesheet, 57, 527, 50, 105, 17, 0.10, 110, false, true);
+        this.animations[3][0] = new Animator(this.spritesheet, 57, 527, 50, 105, 17, 0.10, 110, 0, false, true, false);
         // hit
-        this.animations[4][0] = new Animator(this.spritesheet, 57, 655, 50, 105, 5, 0.20, 110, false, true);
+        this.animations[4][0] = new Animator(this.spritesheet, 57, 655, 50, 105, 5, 0.20, 110, 0, false, true, false);
         // death
-        this.animations[5][0] = new Animator(this.spritesheet, 57, 789, 50, 105, 9, 0.20, 110, false, true);
+        this.animations[5][0] = new Animator(this.spritesheet, 57, 789, 50, 105, 9, 0.20, 110, 0, false, true, false);
         // jump
-        this.animations[6][0] = new Animator(this.spritesheet, 57, 399, 50, 105, 13, 0.10, 110, false, true);
+        this.animations[6][0] = new Animator(this.spritesheet, 57, 399, 50, 105, 13, 0.10, 110, 0, false, true, false);
 
 
         // left idle
-        this.animations[0][1] = new Animator(this.spritesheetLeft, 1495, 15, 45, 105, 8, 0.20, 115, true, true);
+        this.animations[0][1] = new Animator(this.spritesheetLeft, 1495, 15, 45, 105, 8, 0.20, 115, 0, true, true, false);
 
         // left run
-        this.animations[1][1] = new Animator(this.spritesheetLeft, 1495, 150, 39, 105, 8, 0.20, 121, true, true);
+        this.animations[1][1] = new Animator(this.spritesheetLeft, 1495, 150, 39, 105, 8, 0.20, 121, 0, true, true, false);
 
         // left attack
-        this.animations[2][1] = new Animator(this.spritesheetLeft, 692, 269, 70, 105, 13, 0.05, 90, true, true);
+        this.animations[2][1] = new Animator(this.spritesheetLeft, 692, 269, 70, 105, 13, 0.05, 90, 0, true, true, false);
 
         // left skull attack
-        this.animations[3][1] = new Animator(this.spritesheetLeft, 55, 527, 50, 105, 17, 0.10, 110, true, true);
+        this.animations[3][1] = new Animator(this.spritesheetLeft, 55, 527, 50, 105, 17, 0.10, 110, 0, true, true, false);
 
         // left hit
-        this.animations[4][1] = new Animator(this.spritesheetLeft, 1976, 655, 50, 105, 5, 0.20, 110, true, true);
+        this.animations[4][1] = new Animator(this.spritesheetLeft, 1976, 655, 50, 105, 5, 0.20, 110, 0, true, true, false);
         // left death
-        this.animations[5][1] = new Animator(this.spritesheetLeft, 1336, 789, 50, 105, 9, 0.20, 110, true, true);
+        this.animations[5][1] = new Animator(this.spritesheetLeft, 1336, 789, 50, 105, 9, 0.20, 110, 0, true, true, false);
         // left jump
-        this.animations[6][1] = new Animator(this.spritesheetLeft, 692, 399, 50, 105, 13, 0.10, 110, false, true);
-        // this.shootAnim = new Animator(this.spritesheetMage, 1205, 1051, 60, 52, 4, 0.05, 84, false, true);
+        this.animations[6][1] = new Animator(this.spritesheetLeft, 692, 399, 50, 105, 13, 0.10, 110, 0, false, true, false);
+        // this.shootAnim = new Animator(this.spritesheetMage, 1205, 1051, 60, 52, 4, 0.05, 84, 0, false, true, false);
 
         
 
