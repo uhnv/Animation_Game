@@ -5,7 +5,9 @@ class SceneManager {
         this.x = 0;
         this.elapsedTime = 0;
         this.mage = new Mage(this.game, 100, 100); 
+        this.game.addEntity(new Projectile(this.game, 100, 100))
         this.game.addEntity(this.mage);
+        
     };
 
     

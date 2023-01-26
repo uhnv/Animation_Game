@@ -1,7 +1,8 @@
 var assetMangager = new AssetManager();
 
-assetMangager.queueDownload("./mage.png");
-assetMangager.queueDownload("./mageLeft.png");
+assetMangager.queueDownload("./sprites/mageRight.png");
+assetMangager.queueDownload("./sprites/mageLeft.png");
+assetMangager.queueDownload("./sprites/blackFireball.png");
 
 
 assetMangager.downloadAll(() => {
