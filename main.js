@@ -1,15 +1,9 @@
 var assetMangager = new AssetManager();
 
-<<<<<<< Updated upstream
-assetMangager.queueDownload("./mage.png");
-assetMangager.queueDownload("./mageLeft.png");
-
-=======
 assetMangager.queueDownload("./sprites/mageRight.png");
 assetMangager.queueDownload("./sprites/mageLeft.png");
 assetMangager.queueDownload("./sprites/blackFireball.png");
 assetMangager.queueDownload("./sprites/layer-5.png");
->>>>>>> Stashed changes
 
 assetMangager.downloadAll(() => {
 var canvas = document.getElementById('gameWorld');
