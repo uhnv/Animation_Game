@@ -63,9 +63,15 @@ class Mage {
 
 
     };
+<<<<<<< Updated upstream
     // updateBB() {
     //     this.lastBB = this.BB;
     //     this.BB = new BoundingBox(this.x, this.y, PARAMS.BLOCKWIDTH, PARAMS.BLOCKHEIGHT);
+=======
+    updateBB() {
+        this.lastBB = this.BB;
+        this.BB = new BoundingBox(this.x, this.y+110, PARAMS.PLAYERWIDTH, PARAMS.PLAYERHEIGHT);
+>>>>>>> Stashed changes
         
     // };
     
@@ -104,7 +110,35 @@ class Mage {
                     }     
                 if(this.game.E){
                     this.shoot = true;
+<<<<<<< Updated upstream
                  }
+=======
+                }
+                
+                if(this.game.jump && this.playerJump){
+                    this.state = 6;
+                    this.velocity.y = -150;
+                    this.playerJump = false;
+                }
+            }
+            
+        }
+             else {       
+                if(this.animations[this.state][this.facing].isAlmostDone(TICK)){
+                this.state = 0;
+
+                }
+                // if (this.game.right && !this.game.left) {
+                //     this.velocity.x = RUN;
+                // } 
+                // else if (this.game.left && !this.game.right) {
+                //     this.velocity.x -= RUN;
+                // } 
+                // else {
+                //     // do nothing
+                // }
+                
+>>>>>>> Stashed changes
                  
             // }
             // if (this.velocity.y >= MAXFALL) this.velocity.y = MAXFALL;
@@ -118,7 +152,26 @@ class Mage {
             // this.y += this.velocity.y * TICK * PARAMS.SCALE;
             // this.updateBB();
 
+<<<<<<< Updated upstream
                 if(this.velocity.x === 0){
+=======
+            var that = this;
+            this.game.entities.forEach(function (entity) {
+                if (entity.BB && that.BB.collide(entity.BB)) {
+                    if (that.velocity.y > 0) { // falling
+                        if ((entity instanceof Ground) && (that.lastBB.bottom) <= entity.BB.top) {
+                            that.playerJump = true;
+                            that.y = entity.BB.top - PARAMS.PLAYERHEIGHT - 110;
+                            that.velocity.y === 0;
+                            that.updateBB();
+                            }
+                            
+                        }
+                    }
+                });
+
+                if(this.velocity.x === 0 && !this.shoot){
+>>>>>>> Stashed changes
                     this.state = 0;
                 }
                 else if(this.velocity.x < 0){
@@ -137,12 +190,16 @@ class Mage {
             if(this.x < -20){
                 this.x = -20;
             }
+<<<<<<< Updated upstream
             if(this.x >= 750){
                 this.x = 750;
             }
             if(this.y <= 0){
                 this.y = 0;
             }
+=======
+
+>>>>>>> Stashed changes
             // update direction
             if (this.velocity.x < 0) this.facing = 1;
             if (this.velocity.x > 0) this.facing = 0;

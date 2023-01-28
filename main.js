@@ -1,16 +1,23 @@
 var assetMangager = new AssetManager();
 
+<<<<<<< Updated upstream
 assetMangager.queueDownload("./mage.png");
 assetMangager.queueDownload("./mageLeft.png");
 
+=======
+assetMangager.queueDownload("./sprites/mageRight.png");
+assetMangager.queueDownload("./sprites/mageLeft.png");
+assetMangager.queueDownload("./sprites/blackFireball.png");
+assetMangager.queueDownload("./sprites/layer-5.png");
+>>>>>>> Stashed changes
 
 assetMangager.downloadAll(() => {
 var canvas = document.getElementById('gameWorld');
 var ctx = canvas.getContext('2d');
 ctx.imageSmoothingEnabled = false;
 var gameEngine = new GameEngine();
-PARAMS.BLOCKWIDTH = PARAMS.BITWIDTH * PARAMS.SCALE;
-PARAMS.BLOCKHEIGHT = PARAMS.BITHEIGHT * PARAMS.SCALE;
+PARAMS.PLAYERWIDTH = (PARAMS.BITWIDTH * PARAMS.SCALE);
+PARAMS.PLAYERHEIGHT = (PARAMS.BITHEIGHT * PARAMS.SCALE);
 PARAMS.CANVAS_WIDTH = canvas.width;
 PARAMS.CANVAS_HEIGHT = canvas.height;
 // gameEngine.addEntity(new MegaMan(gameEngine, 50, 100));
