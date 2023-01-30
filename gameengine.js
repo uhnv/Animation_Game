@@ -12,7 +12,7 @@ class GameEngine {
         this.up = false;
         this.down = false;
         this.B = false;
-        this.A = false;
+        this.jump = false;
         this.c = false;
         this.click = null;
         this.mouse = null;
@@ -102,7 +102,7 @@ class GameEngine {
                     that.E = true;
                     break;
                 case "Space":
-                    that.A = true;
+                    that.jump= true;
                     break;
             }
         }, false);
@@ -128,7 +128,7 @@ class GameEngine {
                     that.E = false;
                     break;
                 case "Space":
-                    that.A = false;
+                    that.jump = false;
                     break;
             }
         }, false);
