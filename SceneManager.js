@@ -15,7 +15,10 @@ class SceneManager {
         this.game.addEntity(this.enemy);
        // this.game.addEntity(this.monster);
         
-           };
+        
+        this.fireBoss = new fireBoss(this.game, 100, 100); 
+        this.game.addEntity(this.fireBoss);
+    };
 
     
 

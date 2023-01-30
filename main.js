@@ -3,6 +3,11 @@ var assetMangager = new AssetManager();
 assetMangager.queueDownload("./sprites/mageRight.png");
 assetMangager.queueDownload("./sprites/mageLeft.png");
 assetMangager.queueDownload("./sprites/blackFireball.png");
+assetMangager.queueDownload("./demonFire.png");
+assetMangager.queueDownload("./demonFireLeft.png");
+assetMangager.queueDownload("./slime_demonboss_specialmoves.png");
+assetMangager.queueDownload("./slime_demonboss_specialmovesLeft.png");
+
 
 // Load chain_bot sprites.
 assetMangager.queueDownload("./sprites/enemies/chain_bot_idle.png");
@@ -13,16 +18,6 @@ assetMangager.queueDownload("./sprites/enemies/chain_bot_attack_left.png");
 assetMangager.queueDownload("./sprites/enemies/chain_bot_hit.png");
 assetMangager.queueDownload("./sprites/enemies/chain_bot_death.png");
 assetMangager.queueDownload("./sprites/layer-5.png");
-
-
-// Load chain_bot sprites.
-assetMangager.queueDownload("./sprites/enemies/chain_bot_idle.png");
-assetMangager.queueDownload("./sprites/enemies/chain_bot_run_right.png");
-assetMangager.queueDownload("./sprites/enemies/chain_bot_run_left.png");
-assetMangager.queueDownload("./sprites/enemies/chain_bot_attack_right.png");
-assetMangager.queueDownload("./sprites/enemies/chain_bot_attack_left.png");
-assetMangager.queueDownload("./sprites/enemies/chain_bot_hit.png");
-assetMangager.queueDownload("./sprites/enemies/chain_bot_death.png");
 
 assetMangager.queueDownload("./sprites/monster.png");
 

@@ -6,15 +6,8 @@ class GameEngine {
 
         // Everything that will be updated and drawn each frame
         this.entities = [];
+
         // Information on the input
-        this.left = false;
-        this.right = false;
-        this.up = false;
-        this.down = false;
-        this.B = false;
-        this.attack = false;
-        this.jump = false;
-        this.c = false;
         this.click = null;
         this.mouse = null;
         this.wheel = null;
@@ -33,10 +26,10 @@ class GameEngine {
     };
 
     start() {
-        var that = this;
+        this.running = true;
         const gameLoop = () => {
             this.loop();
-            requestAnimFrame(gameLoop, that.ctx.canvas);
+            requestAnimFrame(gameLoop, this.ctx.canvas);
         };
         gameLoop();
     };
@@ -59,18 +52,8 @@ class GameEngine {
                 console.log("CLICK", getXandY(e));
             }
             this.click = getXandY(e);
-
-            this.attack = true;
         });
-        this.ctx.canvas.addEventListener("mouseup", e => {
-            if (this.options.debugging) {
-                console.log("CLICK", getXandY(e));
-            }
-            // this.click = getXandY(e);
-           this.attack = false;
 
-
-        });
         this.ctx.canvas.addEventListener("wheel", e => {
             if (this.options.debugging) {
                 console.log("WHEEL", getXandY(e), e.wheelDelta);
@@ -78,6 +61,7 @@ class GameEngine {
             e.preventDefault(); // Prevent Scrolling
             this.wheel = e;
         });
+
         this.ctx.canvas.addEventListener("contextmenu", e => {
             if (this.options.debugging) {
                 console.log("RIGHT_CLICK", getXandY(e));
@@ -86,69 +70,12 @@ class GameEngine {
             this.rightclick = getXandY(e);
         });
 
-        // this.ctx.canvas.addEventListener("keydown", event => this.keys[event.key] = true);
-        // this.ctx.canvas.addEventListener("keyup", event => this.keys[event.key] = false);
-        var that = this;
-
-        this.ctx.canvas.addEventListener("keydown", function (e) {
-            switch (e.code) {
-                case "ArrowLeft":
-                case "KeyA":
-                    that.left = true;
-                    break;
-                case "ArrowRight":
-                case "KeyD":
-                    that.right = true;
-                    break;
-                case "ArrowUp":
-                case "KeyW":
-                    that.up = true;
-                    break;
-                case "ArrowDown":
-                case "KeyS":
-                    that.down = true;
-                    break;
-                case "KeyE":
-                    that.E = true;
-                    break;
-                case "Space":
-                    that.jump= true;
-                    break;
-            }
-        }, false);
-        this.ctx.canvas.addEventListener("keyup", function (e) {
-            switch (e.code) {
-                case "ArrowLeft":
-                case "KeyA":
-                    that.left = false;
-                    break;
-                case "ArrowRight":
-                case "KeyD":
-                    that.right = false;
-                    break;
-                case "ArrowUp":
-                case "KeyW":
-                    that.up = false;
-                    break;
-                case "ArrowDown":
-                case "KeyS":
-                    that.down = false;
-                    break;
-                case "KeyE":
-                    that.E = false;
-                    break;
-                case "Space":
-                    that.jump = false;
-                    break;
-            }
-        }, false);
+        this.ctx.canvas.addEventListener("keydown", event => this.keys[event.key] = true);
+        this.ctx.canvas.addEventListener("keyup", event => this.keys[event.key] = false);
     };
 
     addEntity(entity) {
         this.entities.push(entity);
-    };
-    addEntityToBegin(entity) {
-        this.entities.unshift(entity);
     };
 
     draw() {
