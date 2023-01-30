@@ -5,11 +5,10 @@ class SceneManager {
         this.x = 0;
         this.elapsedTime = 0;
         this.mage = new Mage(this.game, 100, 100); 
-        this.game.addEntity(new Projectile(this.game, 100, 100))
+        // this.game.addEntity(new Projectile(this.game, 100, 100));
         this.game.addEntity(this.mage);
-        this.enemy = new ChainBot(this.game, 170, 170); 
-        this.game.addEntity(this.enemy);
-        
+        this.game.addEntity(new Ground(this.game, 0, 750, 1400, 50));
+
     };
 
     
