@@ -2,7 +2,7 @@ class Ground {
     constructor(game, x, y, w, h) {
         Object.assign(this, { game, x, y, w, h});
 
-        // this.spritesheet = assetMangager.getAsset("./sprites/Lava16.png");
+        this.spritesheet = assetMangager.getAsset("./sprites/layer-5.png");
         this.animations = [];
         // this.animations.push(new Animator(this.spritesheet, 0, 0, 48, 48, 1, 0.1, 0, false, true));
         this.BB = new BoundingBox(this.x, this.y, this.w, this.h);
