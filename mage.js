@@ -129,7 +129,7 @@ class Mage {
                 }
                 
                 if(this.game.jump && this.playerJump){
-                    this.state = this.states.jump;
+                    this.state = 6;
                     this.velocity.y = -150;
                     this.playerJump = false;
                 }
