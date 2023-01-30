@@ -1,7 +1,10 @@
 var assetMangager = new AssetManager();
 
-assetMangager.queueDownload("./mage.png");
-assetMangager.queueDownload("./mageLeft.png");
+assetMangager.queueDownload("./demonFire.png");
+assetMangager.queueDownload("./demonFireLeft.png");
+assetMangager.queueDownload("./slime_demonboss_specialmoves.png");
+assetMangager.queueDownload("./slime_demonboss_specialmovesLeft.png");
+
 
 
 assetMangager.downloadAll(() => {
@@ -13,7 +16,6 @@ PARAMS.BLOCKWIDTH = PARAMS.BITWIDTH * PARAMS.SCALE;
 PARAMS.BLOCKHEIGHT = PARAMS.BITHEIGHT * PARAMS.SCALE;
 PARAMS.CANVAS_WIDTH = canvas.width;
 PARAMS.CANVAS_HEIGHT = canvas.height;
-// gameEngine.addEntity(new MegaMan(gameEngine, 50, 100));
 
 gameEngine.init(ctx);
 gameEngine.addEntity(new SceneManager(gameEngine));

@@ -40,5 +40,4 @@ currentFrame() {
 isDone() {
         return (this.elapsedTime >= this.totalTime);
     };
-    
 }
