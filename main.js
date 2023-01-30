@@ -3,7 +3,7 @@ var assetMangager = new AssetManager();
 assetMangager.queueDownload("./sprites/mageRight.png");
 assetMangager.queueDownload("./sprites/mageLeft.png");
 assetMangager.queueDownload("./sprites/blackFireball.png");
-assetMangager.queueDownload("./sprites/layer-5.png");
+assetMangager.queueDownload("./sprites/Lava16.png");
 
 assetMangager.downloadAll(() => {
 var canvas = document.getElementById('gameWorld');

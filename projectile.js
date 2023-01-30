@@ -7,6 +7,7 @@ class Projectile{
         this.animations = [];
         this.dead = false;
         this.animations.push(new Animator(this.spritesheet, 0, 0, 15, 15, 4, 0.3, 7, false, true));
+        this.velocity = { x: (this.game.click.x - this.x), y: (this.game.click.y - this.y)};
         this.updateBB();
     };
     updateBB() {
@@ -15,11 +16,17 @@ class Projectile{
         
     };
     update(){
-        // if(this.dead){
-        //     this.removeFromWorld = true;
-        // }
-        this.x += this.speed * this.game.clockTick;
+        const TICK = this.game.clockTick;
+        this.x += this.velocity.x * TICK;
+        this.y += this.velocity.y * TICK;
         this.updateBB();
+
+        if(this.y < 0){
+            this.removeFromWorld = true;                
+        }
+        if(this.x < -10){
+            this.removeFromWorld = true; 
+        }
         // var that = this;
         // this.game.entities.forEach(function (entity) {
         //     if (entity.BB && that.BB.collide(entity.BB)) {

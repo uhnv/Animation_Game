@@ -10,6 +10,15 @@ class Mage {
         this.fallAcc = 200;
         this.facing = 0; 
         this.state = 0;
+        this.states = {
+            idle: 0,
+            run: 1,
+            normAttack: 2,
+            skullAttack: 3,
+            hit: 4,
+            death: 5,
+            jump: 6
+        }
         this.playerJump = false;
         this.shoot = false;
         this.elapsedTime = 0;
@@ -79,18 +88,20 @@ class Mage {
         const MAXFALL = 150;
 
         this.velocity.y += this.fallAcc * TICK; 
+
             if(this.state !== 6){
             if(this.shoot){
                 this.velocity.x = 0;
-                this.state = 2;
-                
-                if(this.animations[this.state][this.facing].isAlmostDone(TICK)){
+                this.state = this.states.normAttack;
+                if(this.elapsedTime > 1 && this.animations[this.state][this.facing].isAlmostDone(TICK)){
+                    this.game.addEntity(new Projectile(this.game, this.x+100, this.y+140));
                     this.animations[this.state][this.facing].elapsedTime = 0;
+                    this.elapsedTime = 0;
                     this.shoot = false;
+                    this.game.attack = false;
                 }
                 // if(this.elapsedTime > 0.3 && this.shootAnim.isAlmostDone(TICK)){
                     // this.game.addEntityToBegin(new Projectile(this.game, this.x, this.y));
-                    
                 // }
             }
             else{
@@ -107,32 +118,31 @@ class Mage {
                 if(!this.game.left && !this.game.right){
                     this.velocity.x = 0;
                 }     
-                if(this.game.E){
+                if(this.game.attack){
                     this.shoot = true;
                 }
                 
                 if(this.game.jump && this.playerJump){
-                    this.state = 6;
+                    this.state = this.states.jump;
                     this.velocity.y = -150;
                     this.playerJump = false;
                 }
             }
             
         }
-             else {       
-                if(this.animations[this.state][this.facing].isAlmostDone(TICK)){
-                this.state = 0;
-
-                }
+             else if(this.velocity.y < 0){       
+                // if(this.animations[this.state][this.facing].isAlmostDone(TICK)){
+                // this.state = 0;
+                
                 // if (this.game.right && !this.game.left) {
-                //     this.velocity.x = RUN;
+                //      this.velocity.x += RUN * TICK;
                 // } 
                 // else if (this.game.left && !this.game.right) {
-                //     this.velocity.x -= RUN;
-                // } 
-                // else {
-                //     // do nothing
+                //     this.velocity.x -= RUN * TICK;
+                // } else {
                 // }
+                // }
+                
                 
                  
             }
