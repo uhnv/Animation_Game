@@ -14,6 +14,18 @@ assetMangager.queueDownload("./sprites/enemies/chain_bot_hit.png");
 assetMangager.queueDownload("./sprites/enemies/chain_bot_death.png");
 assetMangager.queueDownload("./sprites/layer-5.png");
 
+
+// Load chain_bot sprites.
+assetMangager.queueDownload("./sprites/enemies/chain_bot_idle.png");
+assetMangager.queueDownload("./sprites/enemies/chain_bot_run_right.png");
+assetMangager.queueDownload("./sprites/enemies/chain_bot_run_left.png");
+assetMangager.queueDownload("./sprites/enemies/chain_bot_attack_right.png");
+assetMangager.queueDownload("./sprites/enemies/chain_bot_attack_left.png");
+assetMangager.queueDownload("./sprites/enemies/chain_bot_hit.png");
+assetMangager.queueDownload("./sprites/enemies/chain_bot_death.png");
+
+assetMangager.queueDownload("./sprites/monster.png");
+
 assetMangager.downloadAll(() => {
 var canvas = document.getElementById('gameWorld');
 var ctx = canvas.getContext('2d');

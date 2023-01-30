@@ -41,6 +41,7 @@ class Mage {
         this.animations[1][0] = new Animator(this.spritesheet, 65, 150, 39, 105, 8, 0.20, 121, 0, false, true, false);
         // right attack
         this.animations[2][0] = new Animator(this.spritesheet, 61, 269, 70, 105, 13, 0.05, 90, false, true, false); 
+        this.animations[2][0] = new Animator(this.spritesheet, 61, 269, 70, 105, 13, 0.05, 90, 0, false, true, false); 
         // skull attack
         this.animations[3][0] = new Animator(this.spritesheet, 57, 527, 50, 105, 17, 0.10, 110, 0, false, true, false);
         // hit
@@ -49,6 +50,9 @@ class Mage {
         this.animations[5][0] = new Animator(this.spritesheet, 57, 789, 50, 105, 9, 0.20, 110, false, true, false);
         // jump
         this.animations[6][0] = new Animator(this.spritesheet, 57, 399, 50, 105, 13, 0.10, 110, false, true, false);
+        this.animations[5][0] = new Animator(this.spritesheet, 57, 789, 50, 105, 9, 0.20, 110, 0, false, true, false);
+        // jump
+        this.animations[6][0] = new Animator(this.spritesheet, 57, 399, 50, 105, 13, 0.10, 110, 0, false, true, false);
 
 
         // left idle
@@ -59,6 +63,7 @@ class Mage {
 
         // left attack
         this.animations[2][1] = new Animator(this.spritesheetLeft, 692, 269, 70, 105, 13, 0.05, 90, true, true, false);
+        this.animations[2][1] = new Animator(this.spritesheetLeft, 692, 269, 70, 105, 13, 0.05, 90, 0, true, true, false);
 
         // left skull attack
         this.animations[3][1] = new Animator(this.spritesheetLeft, 55, 527, 50, 105, 17, 0.10, 110, 0, true, true, false);
@@ -70,14 +75,18 @@ class Mage {
         // left jump
         this.animations[6][1] = new Animator(this.spritesheetLeft, 692, 399, 50, 105, 13, 0.10, 110, false, true, false);
         // this.shootAnim = new Animator(this.spritesheetMage, 1205, 1051, 60, 52, 4, 0.05, 84, false, true);
+        this.animations[5][1] = new Animator(this.spritesheetLeft, 1336, 789, 50, 105, 9, 0.20, 110, 0, true, true, false);
+        // left jump
+        this.animations[6][1] = new Animator(this.spritesheetLeft, 692, 399, 50, 105, 13, 0.10, 110, 0, false, true, false);
+        // this.shootAnim = new Animator(this.spritesheetMage, 1205, 1051, 60, 52, 4, 0.05, 84, 0, false, true, false);
 
         
-
 
     };
     updateBB() {
         this.lastBB = this.BB;
         this.BB = new BoundingBox(this.x, this.y+110, PARAMS.PLAYERWIDTH, PARAMS.PLAYERHEIGHT);
+        this.BB = new BoundingBox(this.x, this.y+110, PARAMS.BLOCKWIDTH, PARAMS.BLOCKHEIGHT);
         
     };
     
@@ -100,11 +109,8 @@ class Mage {
                     this.shoot = false;
                     this.game.attack = false;
                 }
-                // if(this.elapsedTime > 0.3 && this.shootAnim.isAlmostDone(TICK)){
-                    // this.game.addEntityToBegin(new Projectile(this.game, this.x, this.y));
-                // }
             }
-            else{
+             else {
                 if (this.game.left) {
                     this.facing = 1;
                     this.state = 1;
@@ -128,21 +134,21 @@ class Mage {
                     this.playerJump = false;
                 }
             }
-            
         }
-             else if(this.velocity.y < 0){       
-                // if(this.animations[this.state][this.facing].isAlmostDone(TICK)){
-                // this.state = 0;
-                
+             else {       
+                if(this.animations[this.state][this.facing].isAlmostDone(TICK)){
+                this.state = 0;
+
+                }
                 // if (this.game.right && !this.game.left) {
-                //      this.velocity.x += RUN * TICK;
+                //     this.velocity.x = RUN;
                 // } 
                 // else if (this.game.left && !this.game.right) {
-                //     this.velocity.x -= RUN * TICK;
-                // } else {
+                //     this.velocity.x -= RUN;
+                // } 
+                // else {
+                //     // do nothing
                 // }
-                // }
-                
                 
                  
             }
@@ -185,6 +191,12 @@ class Mage {
 
             if(this.x < -20){
                 this.x = -20;
+            }
+            if(this.y <= 0){
+                this.y = 0;
+            }
+            if(this.y >= 500){
+                this.y = 500;
             }
             // update direction
             if (this.velocity.x < 0) this.facing = 1;
